@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Main Class for all -->
+    <div class="main">
+        <!-- From SEction for submission -->
+        <div class="formSection">
+            <div class="textSection">
+                <h2>Fill your interests</h2>
+                <p>Loreim ipsem, teh btnsaks aos thheh slaals asdasd as ad asd as .</p>
+            </div>
+            <label for="userName">User Name:</label>
+            <input type="text" id="userName" name="userName" value="">
+            <label for="pass">Password:</label>
+            <input type="text" id="pass" name="pass" value="">
+            <p id="Name" style="display: inline;color: red;"></p>
+            <br><br>
+            <button onclick="login()">Login</button>
+            <br>
+        </div>
+    </div>
+    <script>
+        function login() {
+            let uName = document.getElementById("userName").value;
+            let uPass = document.getElementById("pass").value;
+            let udata = ["ammar123", "ammar321", "ammar786"];
+            let uPassData = ["12345678", "11223344", "11122233"];
+            for (i = 0; i < udata.length; i++) {
+
+                if (udata[i] == uName && uPassData[i] == uPass) {
+                    document.getElementById("Name").innerHTML = "successful";
+                    window.location.assign("Form/form.html");
+                }
+                 else {
+                    document.getElementById("Name").innerHTML = "*Invalid User ID";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

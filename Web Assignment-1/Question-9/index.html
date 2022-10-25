@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Main Class for all -->
+    <div class="main">
+        <!-- From SEction for submission -->
+        <div class="formSection">
+            <div class="textSection">
+                <h2>Enter Text</h2>
+            </div>
+            <label for="userinput">Text Box:</label>
+            <!-- <input type="text" id="userinput" name="userinput" value=""> -->
+            <textarea name="userinput" id="userinput" cols="30" rows="10"></textarea>
+            <br><br>
+            <button onclick="Characters()">Check Characters</button>
+            <br><br>
+            <h3>Number of Characters are :</h3>
+            <p id="Name" style="display: inline;"></p>
+        </div>
+    </div>
+    <script>
+        function Characters() {
+            let utext = document.getElementById("userinput").value;
+            document.getElementById("Name").innerHTML=utext.length;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Main Class for all -->
+    <div class="main">
+        <!-- From SEction for submission -->
+        <div class="formSection">
+            <div class="textSection">
+                <h2>Monthly Salary</h2>
+            </div>
+            <label for="salary">Salary:</label>
+            <input type="text" id="salary" name="salary" value="" onchange="calculator()">
+            <!-- <p id="Name" style="display: inline;color: red;"></p> -->
+            <br>
+            <h3 >Monthly Taxable Amount : <span id="MTA"></span> Rs</h3>
+            <h3 >Monthly Taxable Amount After Tax : <span id="MSAT"> Rs</span></h3>
+            <h3>Yearly Tax : <span  id="YT"></span> Rs</h3>
+            <h3 >Yearly Income After Tax : <span id="YIAT"></span> Rs</h3>
+        </div>
+    </div>
+    <script>
+        function calculator() {
+            let monthlySalary = document.getElementById("salary").value;
+            let yearlySalary = monthlySalary * 12;
+            let taxAmount = 0;
+            let taxPercent = 0;
+            let yearlyTaxAmount = 0;
+            let fixedAmount = 0;
+            let yearlySalaryWithTax = 0;
+            let monthlySalaryWithTax = 0;
+            let monthlyTax = 0;
+            if (yearlySalary > 0 && yearlySalary <= 600000) {
+                taxAmount = ((yearlySalary * taxPercent) / 100) + fixedAmount;
+                yearlySalaryWithTax = yearlySalary - taxAmount;
+                monthlySalaryWithTax = yearlySalaryWithTax / 12;
+                yearlyTaxAmount = taxAmount;
+                monthlyTax = taxAmount / 12;
+            } else if (yearlySalary > 600000 && yearlySalary <= 1200000) {
+                taxPercent = 2.5;
+                fixedAmount = 0;
+                taxAmount = fixedAmount + (((yearlySalary - 600000) * taxPercent) / 100);
+                yearlySalaryWithTax = yearlySalary - taxAmount;
+                monthlySalaryWithTax = yearlySalaryWithTax / 12;
+                yearlyTaxAmount = taxAmount;
+                monthlyTax = taxAmount / 12;
+            }
+            else if (yearlySalary > 1200000 && yearlySalary <= 2400000) {
+                taxPercent = 12.5;
+                fixedAmount = 15000;
+                taxAmount = fixedAmount + (((yearlySalary - 1200000) * taxPercent) / 100);
+                yearlySalaryWithTax = yearlySalary - taxAmount;
+                monthlySalaryWithTax = yearlySalaryWithTax / 12;
+                yearlyTaxAmount = taxAmount;
+                monthlyTax = taxAmount / 12;
+            }
+            else if (yearlySalary > 2400000 && yearlySalary <= 3600000) {
+                taxPercent = 20;
+                fixedAmount = 165000;
+                taxAmount = fixedAmount + (((yearlySalary - 2400000) * taxPercent) / 100);
+                yearlySalaryWithTax = yearlySalary - taxAmount;
+                monthlySalaryWithTax = yearlySalaryWithTax / 12;
+                yearlyTaxAmount = taxAmount;
+                monthlyTax = taxAmount / 12;
+            }
+            else if (yearlySalary > 3600000 && yearlySalary <= 6000000) {
+                taxPercent = 25;
+                fixedAmount = 405000;
+                taxAmount = fixedAmount + (((yearlySalary - 3600000) * taxPercent) / 100);
+                yearlySalaryWithTax = yearlySalary - taxAmount;
+                monthlySalaryWithTax = yearlySalaryWithTax / 12;
+                yearlyTaxAmount = taxAmount;
+                monthlyTax = taxAmount / 12;
+            }
+            else if (yearlySalary > 6000000 && yearlySalary <= 12000000) {
+                taxPercent = 32.5;
+                fixedAmount = 1005000;
+                taxAmount = fixedAmount + (((yearlySalary - 6000000) * taxPercent) / 100);
+                yearlySalaryWithTax = yearlySalary - taxAmount;
+                monthlySalaryWithTax = yearlySalaryWithTax / 12;
+                yearlyTaxAmount = taxAmount;
+                monthlyTax = taxAmount / 12;
+            }
+            else if (yearlySalary > 12000000) {
+                taxPercent = 35;
+                fixedAmount = 2955000;
+                taxAmount = fixedAmount + (((yearlySalary - 12000000) * taxPercent) / 100);
+                yearlySalaryWithTax = yearlySalary - taxAmount;
+                monthlySalaryWithTax = yearlySalaryWithTax / 12;
+                yearlyTaxAmount = taxAmount;
+                monthlyTax = taxAmount / 12;
+            }
+            document.getElementById("MTA").innerHTML=monthlyTax;
+            document.getElementById("MSAT").innerHTML=monthlySalaryWithTax;
+            document.getElementById("YT").innerHTML=yearlyTaxAmount;
+            document.getElementById("YIAT").innerHTML=yearlySalaryWithTax;
+        }
+    </script>
+</body>
+
+</html>

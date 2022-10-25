@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Main Class for all -->
+    <div class="main">
+        <!-- From SEction for submission -->
+        <div class="formSection">
+            <div class="textSection">
+                <h2>Fill your interests</h2>
+                <p>Loreim ipsem, teh btnsaks aos thheh slaals asdasd as ad asd as .</p>
+            </div>
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname" value="">
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname" value="">
+            <label for="nameFormat">Name Format :</label>
+            <select id="nameFormat">
+                <option value="FL">First Name,Last Name</option>
+                <option value="LF">Last Name,First Name</option>
+            </select>
+            <br>
+            <button onclick="formatName()">Format Name</button>
+            <br>
+            <h3>Formated Name :</h3>
+            <p id="Name" style="display: inline;"></p>
+        </div>
+    </div>
+    <script>
+        function formatName() {
+            let Fname = document.getElementById("fname").value;
+            let Lname = document.getElementById("lname").value;
+            if (document.getElementById("nameFormat").value === "FL") {
+                document.getElementById("Name").innerHTML=Fname +" " + Lname;
+            }
+            else {
+                document.getElementById("Name").innerHTML=Lname +" "+ Fname;
+                
+            }
+        }
+    </script>
+</body>
+
+</html>

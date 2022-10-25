@@ -1,0 +1,74 @@
+.main{
+    margin: 0px auto;
+    max-width: 1400px;
+    text-decoration:none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+ 
+.formSection {
+    margin-top: 50px ;
+  }
+  .formSection .textSection{ 
+  text-align: center;
+}
+.formSection form{
+  max-width: 500px;
+  margin: auto;
+}
+
+.formSection input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  }
+  .formSection input[type=password]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    .formSection select{
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      }
+    
+.formSection input[type=submit]{
+background-color: rgb(23, 39, 0);
+padding: 10px 40px;
+color: white;
+border-radius: 5px;
+display: block;
+margin: 10px 0px;
+}
+.formSection label{
+  font-size: 20px;
+  text-align: left;
+}
+.formSection textarea{
+  font-size: 20px;
+  width: 100%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.formSection form h3{
+    text-align: left;
+    display: inline;
+    /* margin: 0px auto; */
+}
+p,h3{
+    display: inline;
+}
