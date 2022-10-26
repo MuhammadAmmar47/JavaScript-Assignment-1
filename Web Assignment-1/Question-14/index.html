@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button#Apnd").click(function () {
+                $("#mainDiv").append("<p1>User Added This Append Paragraph</p1>");
+                $("p1").css({"color":"red","display":"block"});
+            });
+            $("button#prepnd").click(function () {
+                $("#mainDiv").prepend("<p2>User Added This Prepend Paragraph</p2>");
+                $("p2").css({"color":"rgb(45, 98, 243)","display":"block"});
+            });
+            $("button#bef").click(function () {
+                $("#mainDiv").before("<p3>User Added This Before Paragraph</p3>");
+                $("p3").css({"color":"rgb(240, 224, 2)","display":"block"});
+            });
+            $("button#aft").click(function () {
+                $("#mainDiv").after("<p4>User Added This After Paragraph</p4>");
+                $("p4").css({"color":"rgb(7, 107, 12)","display":"block"});
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="Apnd">Append</button>
+    <button id="bef">Before</button>
+    <button id="aft">After</button>
+    <button id="prepnd">Prepend</button>
+
+    <div id="mainDiv">This is the main div.</div>
+
+</body>
+
+</html>

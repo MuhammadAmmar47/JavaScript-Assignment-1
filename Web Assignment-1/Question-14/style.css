@@ -1,0 +1,35 @@
+body{
+    max-width: 800px;
+    margin: 5% auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+button{
+    padding: 2% 4%;
+    margin: 5% auto;
+    border-color: white;
+}
+#Apnd{
+    background-color: red;
+    border-radius: 5px;
+    color: white;
+    font-size: larger;
+}
+#bef{
+    background-color: rgb(240, 224, 2);
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-size: larger;
+}
+#aft{
+    background-color: rgb(7, 107, 12);
+    border-radius: 5px;
+    color: white;
+    font-size: larger;
+}
+#prepnd{
+    background-color: rgb(45, 98, 243);
+    border-radius: 5px;
+    color: white;
+    font-size: larger;
+}
