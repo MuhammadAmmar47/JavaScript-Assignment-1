@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 
@@ -11,9 +11,9 @@
     <button onclick="document.getElementById('text').style.display='block'">Display All</button>
     <br>
     <h1>Question-2 Change the Image</h1>
+    <img id="image" src="dress_shirt_PNG8083.png" alt="none">
     <button onclick="document.getElementById('image').src='polo-shirt-png-free-download-13.png'">Change image</button>
     <button onclick="document.getElementById('image').src='dress_shirt_PNG8083.png'">Reset</button>
-    <img id="image" src="dress_shirt_PNG8083.png" alt="none">
     <br>
     <h1>Question-3 Change the paragraph</h1>
     <p id="para">This is the asd aw edaw das awe asd aw e asc awd ads wa
@@ -23,9 +23,9 @@
     <h1>Question-4 Show Error on Button click</h1>
     <button onclick="alert('Error')">Submit</button>
     <br>
-    <div id="textQ5">
+    <div>
         <h1>Question-5 Dissapear and show Text</h1>
-        <p>THiasidasda asdaisdnas dasd awds d a ds dasd a sd </p>
+        <p id="textQ5">THiasidasda asdaisdnas dasd awds d a ds dasd a sd </p>
     </div>
     <button onclick="hide()">Hide/Show</button>
     <!-- <button onclick="document.getElementById('textQ5').style.display='block'">Display All</button> -->

@@ -4,7 +4,12 @@
     text-decoration:none;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
- 
+ .textSection p{
+  color: black;
+ }
+ p{
+  color: red;
+ }
 .formSection {
     margin-top: 50px ;
     max-width: 500px;

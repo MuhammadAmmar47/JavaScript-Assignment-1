@@ -16,16 +16,16 @@
       </div>
       <label for="fname">Name:</label>
       <input type="text" id="fname" name="fname" value="">
-      <p id="error1" style="color:red ;"></p>
+      <p id="error1"></p>
 
 
       <label for="Email">Email:</label>
       <input type="email" id="Email" name="Email" value="" placeholder="user@example.gov">
-      <p id="error2" style="color:red ;"></p>
+      <p id="error2" ></p>
 
       <label for="dob">DOB:</label><br>
       <input type="date" id="dob" name="dob" value="">
-      <p id="error3" style="color:red ;"></p>
+      <p id="error3" ></p>
 
       <label for="Interest">Select your interest :</label>
       <select id="Interest" required>
@@ -34,7 +34,7 @@
         <option value="NUST">NUST</option>
         <option value="LUMS">LUMS</option>
       </select>
-      <p id="error4" style="color:red ;"></p>
+      <p id="error4" ></p>
       <input type="checkbox" id="Individual" name="Individual" value="Male">
       <label for="M">Individual</label>
       <input type="checkbox" id="Organization" name="Organization" value="Female">
@@ -52,13 +52,21 @@
       let emailText = document.getElementById("Email").value;
       let dateOfBirth = document.getElementById("dob").value;
       let interestCheck = document.getElementById("Interest").value;
-      console.log(nameCharacters);
-      val = "";
-      for (i = 0; i < 4; i++) {
-        val = val + dateOfBirth[i];
-      }
-      let age = 2022 - val;
-      console.log(2022 - val);
+      //Email format for validation
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      //Checking the age of the user
+      const dummy = new Date(dateOfBirth);
+      userYear = dummy.getFullYear();
+      userDay = dummy.getDay();
+      // var val = "";
+      // for (i = 0; i < 4; i++) {
+      //   val = val + dateOfBirth[i];
+      // }
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      const currentDay = currentDate.getDay();
+      let age = currentYear - userYear;
+      //For Checking the error in Name
       try {
         if (nameCharacters > 50) throw "Characters Limit Exceed"
         if (nameCharacters == 0) throw "Name Cannot be empty"
@@ -67,21 +75,26 @@
       catch (error1) {
         document.getElementById("error1").innerHTML = error1;
       }
+      //For Checking the error in Email, either it is empty or invalid
       try {
         if (emailText == "") throw "Email cannot be empty"
-        if (emailText != "") throw ""
+        if (emailText.match(mailformat)) { throw "" }
+        else { throw "Invalid Email" }
       }
       catch (error2) {
         document.getElementById("error2").innerHTML = error2;
       }
+      //For Checking the error in DOB of user either he/she is a kid or elder
       try {
         if (dateOfBirth == "") throw "DOB cannot be empty"
         if (age >= 13) throw ""
-        if (age < 13) throw "Hello Kid! Your are too young for this"
+        if (age < 13 && age >= 0) throw "Hello Kid! Your are too young for this"
+        if(userYear>=currentYear && userDay>currentDay) throw "Invalid DOB"
       }
       catch (error3) {
         document.getElementById("error3").innerHTML = error3;
       }
+      //For Checking the error in Interest of user
       try {
         if (interestCheck == "") throw "Please Select the value to proceed"
         if (interestCheck != "") throw ""
