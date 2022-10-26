@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="styling.css">
+</head>
+
+<body>
+  <!-- Main Class for all -->
+  <div class="main">
+    <!-- From SEction for submission -->
+    <div class="formSection">
+      <div class="textSection">
+        <h2>Fill your interests</h2>
+        <p>Loreim ipsem, teh btnsaks aos thheh slaals asdasd as ad asd as .</p>
+      </div>
+      <label for="fname">Name:</label>
+      <input type="text" id="fname" name="fname" value="">
+      <p id="error1" style="color:red ;"></p>
+
+
+      <label for="Email">Email:</label>
+      <input type="email" id="Email" name="Email" value="" placeholder="user@example.gov">
+      <p id="error2" style="color:red ;"></p>
+
+      <label for="dob">DOB:</label><br>
+      <input type="date" id="dob" name="dob" value="">
+      <p id="error3" style="color:red ;"></p>
+
+      <label for="Interest">Select your interest :</label>
+      <select id="Interest" required>
+        <option value="" style="color: lightgray;" disabled selected hidden>-Select-</option>
+        <option value="UET">UET</option>
+        <option value="NUST">NUST</option>
+        <option value="LUMS">LUMS</option>
+      </select>
+      <p id="error4" style="color:red ;"></p>
+      <input type="checkbox" id="Individual" name="Individual" value="Male">
+      <label for="M">Individual</label>
+      <input type="checkbox" id="Organization" name="Organization" value="Female">
+      <label for="F">Organization</label>
+      <br>
+      <label for="About">About You</label>
+      <textarea name="About" id="About" cols="30" rows="10"></textarea>
+      <input type="submit" value="Send Details" onclick="characters()">
+    </div>
+  </div>
+  <script>
+    function characters() {
+      let nameCharacters = document.getElementById("fname").value;
+      nameCharacters = nameCharacters.length;
+      let emailText = document.getElementById("Email").value;
+      let dateOfBirth = document.getElementById("dob").value;
+      let interestCheck = document.getElementById("Interest").value;
+      console.log(nameCharacters);
+      val = "";
+      for (i = 0; i < 4; i++) {
+        val = val + dateOfBirth[i];
+      }
+      let age = 2022 - val;
+      console.log(2022 - val);
+      try {
+        if (nameCharacters > 50) throw "Characters Limit Exceed"
+        if (nameCharacters == 0) throw "Name Cannot be empty"
+        if (nameCharacters <= 50 && nameCharacters > 0) throw ""
+      }
+      catch (error1) {
+        document.getElementById("error1").innerHTML = error1;
+      }
+      try {
+        if (emailText == "") throw "Email cannot be empty"
+        if (emailText != "") throw ""
+      }
+      catch (error2) {
+        document.getElementById("error2").innerHTML = error2;
+      }
+      try {
+        if (dateOfBirth == "") throw "DOB cannot be empty"
+        if (age >= 13) throw ""
+        if (age < 13) throw "Hello Kid! Your are too young for this"
+      }
+      catch (error3) {
+        document.getElementById("error3").innerHTML = error3;
+      }
+      try {
+        if (interestCheck == "") throw "Please Select the value to proceed"
+        if (interestCheck != "") throw ""
+      }
+      catch (error4) {
+        document.getElementById("error4").innerHTML = error4;
+      }
+
+
+    }
+  </script>
+</body>
+
+</html>
