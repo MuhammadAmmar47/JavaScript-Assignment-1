@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#firstCheckbox").click(function () {
+                if ($("#firstCheckbox").is(":checked") == false) {
+                    $("#firstTextbox").attr('disabled', 'disabled');
+                }
+                else {
+                    $("#firstTextbox").removeAttr('disabled');
+                }
+            });
+            $("#secondCheckbox").click(function () {
+                if ($("#secondCheckbox").is(":checked") == false) {
+                    $("#secondTextbox").attr('disabled', 'disabled');
+                }
+                else {
+                    $("#secondTextbox").removeAttr('disabled');
+                }
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="checkbox" id="firstCheckbox">
+    <input type="text" id="firstTextbox" disabled>
+    <input type="checkbox" id="secondCheckbox">
+    <input type="text" id="secondTextbox" disabled>
+</body>
+
+</html>

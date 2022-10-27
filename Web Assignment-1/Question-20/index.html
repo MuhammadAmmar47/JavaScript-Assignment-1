@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $(".Checkbox input:checked").parent().remove();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button>Delete</button>
+    <label class="Checkbox"> <input type="checkbox" id="first" name="myCheckbox" value="first">fisrt</label>
+    <label class="Checkbox"><input type="checkbox" id="second" name="myCheckbox" value="second">second</label>
+    <label class="Checkbox"><input type="checkbox" id="third" name="myCheckbox" value="third">third</label>
+    <label class="Checkbox"><input type="checkbox" id="fourth" name="myCheckbox" value="fourth">fourth</label>
+</body>
+
+</html>

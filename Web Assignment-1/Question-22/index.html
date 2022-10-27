@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                if ($("#textBox").val() == "") {
+                    $("#main span").css({ "background-color": "none" });
+                } else {
+                    var userText = $("#textBox").val();
+                    $("#main").append("<br>");
+                    $("#main").append("<span>" + userText + "</span>");
+                    $("#textBox").val("");
+                }
+            });
+            $('#textBox').bind("enterKey", function (e) {
+                if ($("#textBox").val() == "") {
+                    $("#main span").css({ "background-color": "none" });
+                } else {
+                    var userText = $("#textBox").val();
+                    $("#main").append("<br>");
+                    $("#main").append("<span>" + userText + "</span>");
+                    $("#textBox").val("");
+                }
+            });
+            $('#textBox').keypress(function (e) {
+                if (e.keyCode == 13) {
+                    $(this).trigger("enterKey");
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="textBox" value="">
+    <button>Add Box</button>
+    <hr>
+    <div id="main"></div>
+</body>
+
+</html>

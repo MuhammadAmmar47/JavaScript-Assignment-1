@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("table").toggle();
+                if($("button").text()=="Hide"){
+                    $("button").text("Show");
+                    $('[data-toggle="tooltip"]').attr("title","Show Table").tooltip();   
+                }
+                else{
+                    $("button").text("Hide");
+                    $('[data-toggle="tooltip"]').attr("title","Hide Table").tooltip();   
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button data-toggle="tooltip" data-placement="right" title="Hide Table" >Hide</button>
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>CureMD</td>
+            <td>Muhammad Ammar</td>
+            <td>Pakistan</td>
+        </tr>
+        <tr>
+            <td>CureMD</td>
+            <td>Muhammad Ammar</td>
+            <td>Pakistan</td>
+        </tr>
+        <tr>
+            <td>CureMD</td>
+            <td>Muhammad Ammar</td>
+            <td>Pakistan</td>
+        </tr>
+        <tr>
+            <td>CureMD</td>
+            <td>Muhammad Ammar</td>
+            <td>Pakistan</td>
+        </tr>
+        <tr>
+            <td>CureMD</td>
+            <td>Muhammad Ammar</td>
+            <td>Pakistan</td>
+        </tr>
+        <tr>
+            <td>CureMD</td>
+            <td>Muhammad Ammar</td>
+            <td>Pakistan</td>
+        </tr>
+
+    </table>
+</body>
+
+</html>
