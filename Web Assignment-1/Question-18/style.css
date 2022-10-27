@@ -1,0 +1,24 @@
+body{
+    max-width: 800px;
+    margin: 0px auto;
+    box-sizing: border-box;
+    /* border: 2px solid rgb(0, 0, 0); */
+    text-align: center;
+}
+select{
+    margin-top: 5%;
+    width: 100%;
+    padding: 1% 2%;
+}
+option{
+    /* padding: 2% 1%; */
+}
+button{
+    text-align: left;
+    padding: 2% 4%;
+    background-color: blue;
+    color: white;
+    border-color: white;
+    border-radius: 10px;
+    margin: 3% auto;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("p").wrap("<em></em>");    
+            $("em").css({"font-size":"20px"});
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Replacing p tags with em tags</h1>
+    <div id="mainDiv" style="padding: 20px;">
+        <p>This is a paragraph.</p>
+        <p>Emphasize this too!</p>
+    </div>
+</body>
+
+</html>

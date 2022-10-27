@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mainDiv").children("p").remove();
+            $("#parentDiv").remove();
+            $("#emptyDiv").empty();
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Removing a div element from Code.</h1>
+    <h2>Origional Text</h2>
+    <div style="background-color: lightgrey; padding: 10px;font-size: 20px;">
+        This is First Container.
+        <p>This is a paragraph.</p>
+    </div>
+    <h2>After Removing Child Element.</h2>
+    <div id="mainDiv" style="padding: 20px;background-color: lightgrey;font-size: 20px;">
+        This is First Container.
+        <p>This is a paragraph.</p>
+    </div>
+    <h2>Removing Child Elements using Empty Command.</h2>
+    <div id="emptyDiv" style="padding: 20px;background-color: lightgrey;font-size: 20px;">
+        This is First Container.
+        <p>This is a paragraph.</p>
+    </div>
+    <h2>After Removing Parent Element.</h2>
+    <div id="parentDiv" style="padding: 20px;">
+        <p>This is a paragraph.</p>
+    </div>
+</body>
+
+</html>
