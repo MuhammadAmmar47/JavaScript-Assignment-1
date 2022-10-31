@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        $(document).ready(function () {
+            $("#setCss").click(function () {
+                $(".div1").addClass("div1Update");
+            });
+            $("#addClass").click(function () {
+                $(".div2").addClass("div2Update");
+            });
+            $("#removeClass").click(function () {
+                $(".div2").removeClass("div2Update");
+            });
+            $("#toggleClass").click(function () {
+                $(".div2").toggleClass("div2Update");
+            });
+
+            $("input[type=submit]").click(function () {
+                if ($("#Box").is(":checked") == true) {
+                    $(".div3").addClass("div4");
+                }
+                else {
+                    $(".div3").removeClass("div4");
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <button id="setCss">Set CSS</button>
+        <button id="addClass">Add Class</button>
+        <button id="removeClass">Remove Class</button>
+        <button id="toggleClass">Toggle Class</button>
+    </div>
+    <div class="div1">
+        <p>We will use this div to verify "Set Clsas!"</p>
+    </div>
+    <div class="div2">
+        <p>We will use this div to verify "ADD, Remove and Toggle Class."</p>
+    </div>
+    <div class="div3">
+        <p>We will "Copy" the class of blew div here.</p>
+    </div>
+    <div class="div4">
+        <p>We will copy the CSS Class of this div to above div.</p>
+        <label>Check to Copy Css <input type="checkbox" name="check" id="Box"></label>
+        <br><input type="submit" value="Copy CSS">
+    </div>
+
+</body>
+
+</html>

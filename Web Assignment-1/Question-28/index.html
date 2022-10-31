@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        $(document).ready(function () {
+            $("#calculateDays").click(function () {
+                var from_Date = new Date($("#fromDate").val());
+                var to_Date = new Date($("#toDate").val());
+                var DifferenceInTime = to_Date.getTime() - from_Date.getTime(); //.getTime tell the time from jan 1,1970 in milliseconds.
+                var DifferenceInDays = DifferenceInTime / (1000 * 60 * 60 * 24);  //Conversion of time into days
+                try {
+                    if (DifferenceInDays < 0) { DifferenceInDays = DifferenceInDays * (-1); throw ("Future days are calculated") }
+                } catch (error) {
+                    alert(error)
+                }
+                $("p").replaceWith("<p>Total number of days between from date :"
+                    + from_Date + " To Date : "
+                    + to_Date + " is:" + " " + "<b>" + DifferenceInDays + "</b>"
+                    + "</p>");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Number of Days</h1>
+    </div>
+    <div id="dateSection">
+        <h4>From Date</h4>
+        <input type="date" id="fromDate">
+        <h4>To Date</h4>
+        <input type="date" id="toDate"><br>
+        <button id="calculateDays">Calculate Days</button>
+        <p></p>
+    </div>
+
+
+</body>
+
+</html>

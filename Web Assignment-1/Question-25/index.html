@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        $(document).ready(function () {
+            $("#slide-up").click(function () {
+                $(".form").slideUp(1000, function () {
+                    alert("Slide is up.");
+                });
+            });
+            $("#slide-down").click(function () {
+                $(".form").slideDown(1000, function () {
+                    alert("Slide is Down.");
+                });
+            });
+            $("#slide-toggle").click(function () {
+                $(".form").slideToggle(1000, function () {
+                    alert("Slide is toggled (up/down).");
+                });
+            });
+            $("input[type=submit]").click(function () {
+                $(".form").hide();
+                $("#showForm").show();
+                $("#showForm").click(function () {
+                    $(this).hide();
+                    $(".form").show();
+                    $("input[type=text]").val("");
+                    $("textarea").val("");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Click the Buttons to slid up or down</h1>
+        <button id="slide-up">Slide Up</button>
+        <button id="slide-down">Slide Down</button>
+        <button id="slide-toggle">Slide Toggle</button>
+    </div>
+    <div class="showHideButton">
+        <button id="showForm" hidden>Show Feedback Form</button>
+        <div class="form">
+            <h2>Feedback Form</h2>
+            <h3>Employee ID</h3>
+            <input type="text" id="employeeID" placeholder="Enter your Emplyee ID">
+            <span>We will never share your email with anyone else.</span>
+            <h3>Feedback</h3>
+            <textarea name="feedback" id="feedback" placeholder="Your Feedback ?"></textarea>
+            <label><input type="checkbox"> Was this Helpful?</label>
+            <br><input type="submit">
+        </div>
+    </div>
+
+</body>
+
+</html>

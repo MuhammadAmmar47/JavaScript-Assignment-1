@@ -1,0 +1,43 @@
+body{
+    max-width: 800px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    font-size: xx-large;
+    /* border: 2px solid rgb(0, 0, 0); */
+    text-align: center;
+    
+}
+
+#change-dim{
+    font-size: x-large;
+    background-color: blue;
+    color: white;
+    padding: 1% 2%;
+    border-radius: 10px;
+    margin: auto;
+    border-color: white;
+}
+#stop{
+    font-size: x-large;
+    border-color: white;
+    background-color:  red;
+    color: white;
+    padding: 1% 2%;
+    border-radius: 10px;
+    margin: auto;
+}
+#reset{
+    border-color: white;
+    font-size: x-large;
+    background-color: green;
+    color: rgb(255, 255, 255);
+    padding: 1% 2%;
+    border-radius: 10px;
+    margin: auto;
+}
+div{
+    text-align: center;
+    margin: auto;
+    width: 5px;
+    height: 5px;
+}

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="us">
+
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Example Page</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-1.12.4.js">
+	</script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
+	</script>
+	<style>
+		body {
+			font-family: "Trebuchet MS", sans-serif;
+			margin: 50px;
+		}
+
+		.demoHeaders {
+			margin-top: 2em;
+		}
+
+		#dialog-link {
+			padding: .4em 1em .4em 20px;
+			text-decoration: none;
+			position: relative;
+		}
+
+		#dialog-link span.ui-icon {
+			margin: 0 5px 0 0;
+			position: absolute;
+			left: .2em;
+			top: 50%;
+			margin-top: -8px;
+		}
+
+		#icons {
+			margin: 0;
+			padding: 0;
+		}
+
+		#icons li {
+			margin: 2px;
+			position: relative;
+			padding: 4px 0;
+			cursor: pointer;
+			float: left;
+			list-style: none;
+		}
+
+		#icons span.ui-icon {
+			float: left;
+			margin: 0 4px;
+		}
+
+		.fakewindowcontain .ui-widget-overlay {
+			position: absolute;
+		}
+
+		select {
+			width: 200px;
+		}
+
+		#sortableList {
+			list-style-type: none;
+		}
+
+		#sortableList {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: 60%;
+		}
+
+		#sortableList li {
+			margin: 0 3px 3px 3px;
+			padding: 0.4em;
+			padding-left: 1.5em;
+			font-size: 1.4em;
+			height: 18px;
+		}
+
+		#sortableList li span {
+			position: absolute;
+			margin-left: -1.3em;
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Tabs -->
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1" id="t1" val="0">Introduction</a></li>
+			<li><a href="#tabs-2" id="t2" val="1">Name</a></li>
+			<li><a href="#tabs-3" id="t3" val="2">Details</a></li>
+			<li><a href="#tabs-4" id="t4" val="3">Education</a></li>
+			<li><a href="#tabs-5" id="t5" val="4">Preferences</a></li>
+			<li><a href="#tabs-6" id="t6" val="5">Confirmation</a></li>
+		</ul>
+		<div id="tabs-1">
+			<h1>Welcome to CureMD's Admission Portal</h1>
+			<p>If you want to get Admission press the button</p>
+			<button id="getAdmit">Get Admission</button>
+		</div>
+		<div id="tabs-2">
+			<label>Name</label><br>
+			<input type="text" name="nameText" id="nameText"><br>
+			<label>Email</label><br>
+			<input type="email" name="Email" id="Email"><br>
+		</div>
+		<div id="tabs-3">
+			<label>Age</label><br>
+			<input type="text" name="Age" id="Age"><br>
+			<label>Gender</label><br>
+			<input type="text" name="Gender" id="Gender"><br>
+			<label>DOB</label><br>
+			<input type="text" name="DOB" id="DOB"><br>
+		</div>
+		<div id="tabs-4">
+			<label>Qualification</label><br>
+			<input type="text" name="Qualification" id="Qualification"><br>
+			<label>CGPA</label><br>
+			<input type="text" name="CGPA" id="CGPA"><br>
+		</div>
+		<div id="tabs-5">
+			<ul id="sortableList">
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Web Engineering</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>SQA</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Mern Developer</li>
+				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Artifical Intelligence</li>
+			</ul>
+
+		</div>
+		<div id="tabs-6">
+			<h1>We have gathered your information do you want to proceed?</h1>
+			<button id="subm">Confirm</button>
+		</div>
+
+		<input type="button" id="btnPrevious" value="Back" hidden />
+		<input type="button" id="btnNext" value="Next" hidden/>
+	</div>
+	<div id="finalData" hidden>
+		<h1>After clicking Submit Button</h1>
+
+	</div>
+
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#tabs").tabs();
+			var tabs = $("#tabs").tabs();
+			console.log(tabs);
+			var $tabs = $('#tabs').tabs(); // first tab selected
+			console.log($tabs);
+			$("#getAdmit").click(function () {
+				$("#t2").click();
+				$("#btnNext").show();
+				$("#btnPrevious").show();
+			});
+			
+			$(function () {
+				$('#sortableList').sortable();
+			});
+			$("#DOB").datepicker({
+				inline: true
+			});
+			$("#subm").click(function () {
+				$("#tabs").hide();
+				$("#finalData").show();
+				$("#finalData").append("<p> Name is : " + $("#nameText").val()+"</p>");
+				$("#finalData").append("<p> Email is : " + $("#Email").val()+"</p>");
+				$("#finalData").append("<p> Age is : " + $("#Age").val()+"</p>");
+				$("#finalData").append("<p> Gender is : " + $("#Gender").val()+"</p>");
+				$("#finalData").append("<p> DOB is : " + $("#DOB").val()+"</p>");
+				$("#finalData").append("<p> Qualification is : " + $("#Qualification").val()+"</p>");
+				$("#finalData").append("<p> CGPA is : " + $("#CGPA").val()+"</p>");
+			});
+		});
+			// var currentTab = 0;
+			// $(function () {
+			// 	$("#tabs").tabs({
+			// 		select: function (e, i) {
+			// 			currentTab = i.index;
+			// 		}
+			// 	});
+			// });
+			// $("#btnNext").live("click", function () {
+			// 	var tabs = $('#tabs').tabs();
+			// 	var c = $('#tabs').tabs("length");
+			// 	currentTab = currentTab == (c - 1) ? currentTab : (currentTab + 1);
+			// 	tabs.tabs('select', currentTab);
+			// 	$("#btnPrevious").show();
+			// 	if (currentTab == (c - 1)) {
+			// 		$("#btnNext").hide();
+			// 	} else {
+			// 		$("#btnNext").show();
+			// 	}
+			// });
+			// $("#btnPrevious").live("click", function () {
+			// 	var tabs = $('#tabs').tabs();
+			// 	var c = $('#tabs').tabs("length");
+			// 	currentTab = currentTab == 0 ? currentTab : (currentTab - 1);
+			// 	tabs.tabs('select', currentTab);
+			// 	if (currentTab == 0) {
+			// 		$("#btnNext").show();
+			// 		$("#btnPrevious").hide();
+			// 	}
+			// 	if (currentTab < (c - 1)) {
+			// 		$("#btnNext").show();
+			// 	}
+			// });
+
+		
+// var availableTags = [
+// 	"ActionScript",
+// 	"AppleScript",
+// 	"Asp",
+// 	"BASIC",
+// 	"C",
+// 	"C++",
+// 	"Clojure",
+// 	"COBOL",
+// 	"ColdFusion",
+// 	"Erlang",
+// 	"Fortran",
+// 	"Groovy",
+// 	"Haskell",
+// 	"Java",
+// 	"JavaScript",
+// 	"Lisp",
+// 	"Perl",
+// 	"PHP",
+// 	"Python",
+// 	"Ruby",
+// 	"Scala",
+// 	"Scheme"
+// ];
+
+// $( "#button" ).button();
+// $( "#button-icon" ).button({
+// 	icon: "ui-icon-gear",
+// 	showLabel: false
+// });
+
+// $( "#tabs" ).tabs();
+
+// $( "#dialog" ).dialog({
+// 	autoOpen: false,
+// 	width: 400,
+// 	buttons: [
+// 		{
+// 			text: "Ok",
+// 			click: function() {
+// 				$( this ).dialog( "close" );
+// 			}
+// 		},
+// 		{
+// 			text: "Cancel",
+// 			click: function() {
+// 				$( this ).dialog( "close" );
+// 			}
+// 		}
+// 	]
+// });
+
+// $( "#datepicker" ).datepicker({
+// 	inline: true
+// });
+
+// // Hover states on the static widgets
+// $( "#dialog-link, #icons li" ).hover(
+// 	function() {
+// 		$( this ).addClass( "ui-state-hover" );
+// 	},
+// 	function() {
+// 		$( this ).removeClass( "ui-state-hover" );
+// 	}
+// );
+	</script>
+</body>
+
+</html>
