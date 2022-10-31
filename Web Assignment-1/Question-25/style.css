@@ -16,6 +16,12 @@ body {
     height: 250px;
 }
 
+p {
+    font-size: large;
+    margin: 5px 0px 5px 5px ;
+    color: red;
+}
+
 .heading h1 {
     margin-top: 10px;
 }

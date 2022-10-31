@@ -22,15 +22,28 @@
                 });
             });
             $("input[type=submit]").click(function () {
-                $(".form").hide();
-                $("#showForm").show();
-                $("#showForm").click(function () {
-                    $(this).hide();
-                    $(".form").show();
-                    $("input[type=text]").val("");
-                    $("textarea").val("");
-                });
+                var nameValue = $("#employeeID").val();
+                try {
+                    if (nameValue == "") {
+                        throw ("Employee ID must be filled");
+                    }
+                    else{
+                        $(".form").hide();
+                        $("#showForm").show();
+                        $("#showForm").click(function () {
+                            $(this).hide();
+                            $(".form").show();
+                            $("input[type=text]").val("");
+                            $("textarea").val("");
+                            $("p").html("");
+                        });
+                    }
+                } catch (error) {
+                    $("#err").html(error);
+                }
             });
+
+
         });
     </script>
 </head>
@@ -47,10 +60,12 @@
         <div class="form">
             <h2>Feedback Form</h2>
             <h3>Employee ID</h3>
-            <input type="text" id="employeeID" placeholder="Enter your Emplyee ID">
+            <input type="text" id="employeeID" placeholder="Enter your Emplyee ID" required>
+            <p id="err"></p>
             <span>We will never share your email with anyone else.</span>
             <h3>Feedback</h3>
             <textarea name="feedback" id="feedback" placeholder="Your Feedback ?"></textarea>
+          
             <label><input type="checkbox"> Was this Helpful?</label>
             <br><input type="submit">
         </div>

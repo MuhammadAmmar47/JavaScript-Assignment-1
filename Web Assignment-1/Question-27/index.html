@@ -9,6 +9,83 @@
 	</script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js">
 	</script>
+	<script src="external/jquery/jquery.js"></script>
+	<script src="jquery-ui.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("#tabs").tabs();
+			var tabs = $("#tabs").tabs();
+			console.log(tabs);
+			var $tabs = $('#tabs').tabs(); // first tab selected
+			console.log($tabs);
+			$("#getAdmit").click(function () {
+				$("#t2").click();
+				$("#btnNext").show();
+				$("#btnPrevious").show();
+			});
+
+			$("#btnPrevioustab2").click(function () { $("#t1").click(); });
+			$("#btnNexttab2").click(function () { $("#t3").click(); });
+			$("#btnPrevioustab3").click(function () { $("#t2").click(); });
+			$("#btnNexttab3").click(function () { $("#t4").click(); });
+			$("#btnPrevioustab4").click(function () { $("#t3").click(); });
+			$("#btnNexttab4").click(function () { $("#t5").click(); });
+			$("#btnPrevioustab5").click(function () { $("#t4").click(); });
+			$("#btnNexttab5").click(function () { $("#t6").click(); });
+			$("#btnPrevioustab6").click(function () { $("#t5").click(); });
+
+			var new_pos;
+			var old_pos;
+			$(function () {
+				$('#sortableList').sortable({
+					update: function (event, ui) {
+						new_pos = ui.item.index();
+						text1 = $("#sortableList li").eq(new_pos).html();				//eq will get the position of the element and return its html
+						// console.log('update: '+text1+" " + new_pos);
+						alert("New position of " + text1 + " is at index : " + new_pos);
+					},
+					start: function (event, ui) {
+						old_pos = ui.item.index();
+						text2 = $("#sortableList li").eq(old_pos).html();
+						console.log('start: ' + text2 + " " + old_pos);
+
+					}
+				});
+			});
+			$("#DOB").datepicker({
+				inline: true
+			});
+			$("#subm").click(function () {
+				var nametext = $("#nameText").val();
+				var emailtext = $("#Email").val();
+				var ageNumber = $("#Age").val();
+				var genderText = $("#Gender").val();
+				var dobText = $("#DOB").val();
+				var qaulificationText = $("#Qualification").val();
+				var cgpaText = $("#CGPA").val();
+				try {
+					if (nametext == "" && emailtext == "" && ageNumber == "" && genderText == "" && dobText == "" && qaulificationText == "" && cgpaText == "") {
+						throw ("Fill all the input Fields.")
+					}
+					else {
+						$("#tabs").hide();
+						$("#finalData").show();
+						$("#finalData").append("<p> Name is : " + $("#nameText").val() + "</p>");
+						$("#finalData").append("<p> Email is : " + $("#Email").val() + "</p>");
+						$("#finalData").append("<p> Age is : " + $("#Age").val() + "</p>");
+						$("#finalData").append("<p> Gender is : " + $("#Gender").val() + "</p>");
+						$("#finalData").append("<p> DOB is : " + $("#DOB").val() + "</p>");
+						$("#finalData").append("<p> Qualification is : " + $("#Qualification").val() + "</p>");
+						$("#finalData").append("<p> CGPA is : " + $("#CGPA").val() + "</p>");
+					}
+				} catch (error) {
+					alert(error)
+				}
+
+			});
+		});
+
+	</script>
 	<style>
 		body {
 			font-family: "Trebuchet MS", sans-serif;
@@ -83,6 +160,31 @@
 			position: absolute;
 			margin-left: -1.3em;
 		}
+
+		#btnPrevioustab2,
+		#btnPrevioustab3,
+		#btnPrevioustab4,
+		#btnPrevioustab5,
+		#btnPrevioustab6 {
+			background-color: rgb(37, 105, 231);
+			color: white;
+			margin-top: 10px;
+			border-radius: 10px;
+			margin-right: 10px;
+			padding: 10px 20px;
+		}
+
+		#btnNexttab2,
+		#btnNexttab3,
+		#btnNexttab4,
+		#btnNexttab5,
+		#subm {
+			background-color: rgb(214, 47, 47);
+			color: white;
+			margin-top: 10px;
+			border-radius: 10px;
+			padding: 10px 20px;
+		}
 	</style>
 </head>
 
@@ -105,180 +207,54 @@
 		</div>
 		<div id="tabs-2">
 			<label>Name</label><br>
-			<input type="text" name="nameText" id="nameText"><br>
+			<input type="text" name="nameText" id="nameText" required><br>
 			<label>Email</label><br>
-			<input type="email" name="Email" id="Email"><br>
+			<input type="email" name="Email" id="Email" required><br>
+			<input type="button" id="btnPrevioustab2" value="Back" />
+			<input type="button" id="btnNexttab2" value="Next" />
 		</div>
 		<div id="tabs-3">
 			<label>Age</label><br>
-			<input type="text" name="Age" id="Age"><br>
+			<input type="number" name="Age" id="Age"><br>
 			<label>Gender</label><br>
 			<input type="text" name="Gender" id="Gender"><br>
 			<label>DOB</label><br>
 			<input type="text" name="DOB" id="DOB"><br>
+			<input type="button" id="btnPrevioustab3" value="Back" />
+			<input type="button" id="btnNexttab3" value="Next" />
 		</div>
 		<div id="tabs-4">
 			<label>Qualification</label><br>
 			<input type="text" name="Qualification" id="Qualification"><br>
 			<label>CGPA</label><br>
 			<input type="text" name="CGPA" id="CGPA"><br>
+			<input type="button" id="btnPrevioustab4" value="Back" />
+			<input type="button" id="btnNexttab4" value="Next" />
 		</div>
 		<div id="tabs-5">
 			<ul id="sortableList">
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Web Engineering</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>SQA</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Mern Developer</li>
-				<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Artifical Intelligence</li>
+				<li class="ui-state-default" value="0">Web Engineering</li>
+				<li class="ui-state-default" value="1">SQA</li>
+				<li class="ui-state-default" value="2">Mern Developer</li>
+				<li class="ui-state-default" value="3">Artificial Intelligence</li>
+				<input type="button" id="btnPrevioustab5" value="Back" />
+				<input type="button" id="btnNexttab5" value="Next" />
 			</ul>
-
 		</div>
 		<div id="tabs-6">
 			<h1>We have gathered your information do you want to proceed?</h1>
-			<button id="subm">Confirm</button>
+			<input type="button" id="btnPrevioustab6" value="Back" />
+			<input type="submit" id="subm" value="Confirm" />
 		</div>
 
-		<input type="button" id="btnPrevious" value="Back" hidden />
-		<input type="button" id="btnNext" value="Next" hidden/>
+
 	</div>
 	<div id="finalData" hidden>
 		<h1>After clicking Submit Button</h1>
 
 	</div>
 
-	<script src="external/jquery/jquery.js"></script>
-	<script src="jquery-ui.js"></script>
-	<script>
-		$(document).ready(function () {
-			$("#tabs").tabs();
-			var tabs = $("#tabs").tabs();
-			console.log(tabs);
-			var $tabs = $('#tabs').tabs(); // first tab selected
-			console.log($tabs);
-			$("#getAdmit").click(function () {
-				$("#t2").click();
-				$("#btnNext").show();
-				$("#btnPrevious").show();
-			});
-			
-			$(function () {
-				$('#sortableList').sortable();
-			});
-			$("#DOB").datepicker({
-				inline: true
-			});
-			$("#subm").click(function () {
-				$("#tabs").hide();
-				$("#finalData").show();
-				$("#finalData").append("<p> Name is : " + $("#nameText").val()+"</p>");
-				$("#finalData").append("<p> Email is : " + $("#Email").val()+"</p>");
-				$("#finalData").append("<p> Age is : " + $("#Age").val()+"</p>");
-				$("#finalData").append("<p> Gender is : " + $("#Gender").val()+"</p>");
-				$("#finalData").append("<p> DOB is : " + $("#DOB").val()+"</p>");
-				$("#finalData").append("<p> Qualification is : " + $("#Qualification").val()+"</p>");
-				$("#finalData").append("<p> CGPA is : " + $("#CGPA").val()+"</p>");
-			});
-		});
-			// var currentTab = 0;
-			// $(function () {
-			// 	$("#tabs").tabs({
-			// 		select: function (e, i) {
-			// 			currentTab = i.index;
-			// 		}
-			// 	});
-			// });
-			// $("#btnNext").live("click", function () {
-			// 	var tabs = $('#tabs').tabs();
-			// 	var c = $('#tabs').tabs("length");
-			// 	currentTab = currentTab == (c - 1) ? currentTab : (currentTab + 1);
-			// 	tabs.tabs('select', currentTab);
-			// 	$("#btnPrevious").show();
-			// 	if (currentTab == (c - 1)) {
-			// 		$("#btnNext").hide();
-			// 	} else {
-			// 		$("#btnNext").show();
-			// 	}
-			// });
-			// $("#btnPrevious").live("click", function () {
-			// 	var tabs = $('#tabs').tabs();
-			// 	var c = $('#tabs').tabs("length");
-			// 	currentTab = currentTab == 0 ? currentTab : (currentTab - 1);
-			// 	tabs.tabs('select', currentTab);
-			// 	if (currentTab == 0) {
-			// 		$("#btnNext").show();
-			// 		$("#btnPrevious").hide();
-			// 	}
-			// 	if (currentTab < (c - 1)) {
-			// 		$("#btnNext").show();
-			// 	}
-			// });
 
-		
-// var availableTags = [
-// 	"ActionScript",
-// 	"AppleScript",
-// 	"Asp",
-// 	"BASIC",
-// 	"C",
-// 	"C++",
-// 	"Clojure",
-// 	"COBOL",
-// 	"ColdFusion",
-// 	"Erlang",
-// 	"Fortran",
-// 	"Groovy",
-// 	"Haskell",
-// 	"Java",
-// 	"JavaScript",
-// 	"Lisp",
-// 	"Perl",
-// 	"PHP",
-// 	"Python",
-// 	"Ruby",
-// 	"Scala",
-// 	"Scheme"
-// ];
-
-// $( "#button" ).button();
-// $( "#button-icon" ).button({
-// 	icon: "ui-icon-gear",
-// 	showLabel: false
-// });
-
-// $( "#tabs" ).tabs();
-
-// $( "#dialog" ).dialog({
-// 	autoOpen: false,
-// 	width: 400,
-// 	buttons: [
-// 		{
-// 			text: "Ok",
-// 			click: function() {
-// 				$( this ).dialog( "close" );
-// 			}
-// 		},
-// 		{
-// 			text: "Cancel",
-// 			click: function() {
-// 				$( this ).dialog( "close" );
-// 			}
-// 		}
-// 	]
-// });
-
-// $( "#datepicker" ).datepicker({
-// 	inline: true
-// });
-
-// // Hover states on the static widgets
-// $( "#dialog-link, #icons li" ).hover(
-// 	function() {
-// 		$( this ).addClass( "ui-state-hover" );
-// 	},
-// 	function() {
-// 		$( this ).removeClass( "ui-state-hover" );
-// 	}
-// );
-	</script>
 </body>
 
 </html>
